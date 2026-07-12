@@ -16,14 +16,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Download IPTV source
+      - name: Download IPTV sources
         run: |
           mkdir -p output
-          curl -L https://iptv-org.github.io/iptv/countries/cn.m3u -o output/source.m3u
 
-      - name: Generate subscribe.txt
-        run: |
-          echo "https://raw.githubusercontent.com/${{ github.repository }}/main/output/source.m3u" > subscribe.txt
+          curl -L https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/ipv4.m3m3u -o fanmingming.m3u
+
+          curl -L https://raw.githubusercontent.com/YueChan/Live/main/IPTV.m3u -o yuechan.m3u
+
+          curl -L https://iptv-org.github.io/iptv/countries/cn.m3u -o iptvorg.m3u
+
+          cat fanmingming.m3u yuechan.m3u iptvorg.m3u > output/source.m3u
 
       - name: Commit update
         run: |
