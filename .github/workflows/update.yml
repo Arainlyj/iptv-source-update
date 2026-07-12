@@ -19,7 +19,7 @@ jobs:
       - name: Download IPTV source
         run: |
           mkdir -p output
-          curl -L https://iptv-org.github.io/iptv/index.m3u -o output/source.m3u
+          curl -L https://iptv-org.github.io/iptv/countries/cn.m3u -o output/source.m3u
 
       - name: Generate subscribe.txt
         run: |
