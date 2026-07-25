@@ -20,13 +20,16 @@ jobs:
         run: |
           mkdir -p output
 
-          curl -L https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/ipv4.m3m3u -o fanmingming.m3u
+          curl -L https://iptv-org.github.io/iptv/countries/cn.m3u -o iptvorg.m3u
 
           curl -L https://raw.githubusercontent.com/YueChan/Live/main/IPTV.m3u -o yuechan.m3u
 
-          curl -L https://iptv-org.github.io/iptv/countries/cn.m3u -o iptvorg.m3u
+          curl -L https://raw.githubusercontent.com/suxuang/myIPTV/main/ipv4.m3u -o suxuang.m3u
+          
+          curl -L https://raw.githubusercontent.com/Kimentanm/aptv/master/m3u/iptv.m3u -o kimentanm.m3u
 
-          cat fanmingming.m3u yuechan.m3u iptvorg.m3u > output/source.m3u
+          cat iptvorg.m3u yuechan.m3u suxuang.m3u kimentanm.m3u > output/source.m3u
+
 
       - name: Commit update
         run: |
